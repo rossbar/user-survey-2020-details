@@ -1,8 +1,0 @@
-|  |  |
-|---------------|-------------|
-| **Africa:** | Egypt, Ghana, Kenya, Nigeria, South Africa, Zimbabwe |
-| **Asia:** | Bangladesh, China, Indonesia, Israel, Malaysia, Pakistan, Singapore, South Korea, Turkey |
-| **Europe:** | Austria, Belgium, Bulgaria, Denmark, Finland, Hungary, Iceland, Ireland, Italy, Latvia, Norway, Poland, Russia, Slovakia, Spain, Sweden, Switzerland, Ukraine |
-| **North America:** | Canada, Cuba, Mexico |
-| **Oceania:** | Australia, Vanuatu |
-| **South America:** | Argentina, Chile, Colombia, Ecuador, Paraguay, Peru, Venezuela |
