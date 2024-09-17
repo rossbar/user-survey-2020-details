@@ -1,260 +1,371 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Usage &#8212; NumPy Community Survey 2020  documentation</title>
-    
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
   
-    
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
   
-    
-      
   
-    
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
   
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/2021/features_and_deprecations';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Future" href="biggest_impact.html" />
     <link rel="prev" title="Priorities" href="priorities.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
-
-  <div id="navbar-start">
-    
-    
-
-<a class="navbar-brand" href="../../index.html">
-  <img src="../../_static/numpylogo.svg" class="logo" alt="logo">
-</a>
-
-
-    
-  </div>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
-  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
-    <div id="navbar-center" class="mr-auto">
-      
-      <div class="navbar-center-item">
-        <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="demographics.html">
-  Community
- </a>
-</li>
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="contributions.html">
-  Contributions
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="priorities.html">
-  Priorities
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="current reference internal nav-link" href="#">
-  Usage
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="biggest_impact.html">
-  Future
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="acknowledgements.html">
-  Acknowledgements
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../index.html">
-  Previous Years
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../glossary.html">
-  Glossary
- </a>
-</li>
-
-    
-</ul>
-      </div>
-      
-    </div>
-
-    <div id="navbar-end">
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
-      </div>
-      
-    </div>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search survey results ..."
+         aria-label="Search survey results ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
   </div>
-</div>
-    </nav>
-    
 
-    <div class="container-xl">
-      <div class="row">
-          
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
-              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search survey results ..." aria-label="Search survey results ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <div class="bd-toc-item active">
-    
-  </div>
-</nav>
-              </div>
-              <div class="sidebar-end-items">
-              </div>
-            </div>
-            
-          
-
-          
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
-                
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
-<nav id="bd-toc-nav">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numpy-primary-use">
-   NumPy Primary Use
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/numpylogo.svg" class="logo__image only-light" alt="NumPy Community Survey 2020  documentation - Home"/>
+    <script>document.write(`<img src="../../_static/numpylogo.svg" class="logo__image only-dark" alt="NumPy Community Survey 2020  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    2021 Survey Results
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numpy-frequency-of-use">
-   NumPy Frequency of Use
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../2020/index.html">
+    2020 Survey Results
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numpy-version">
-   NumPy Version
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../glossary.html">
+    Glossary
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numpy-components">
-   NumPy Components
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    2021 Survey Results
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numpy-c-extensions">
-   NumPy C-Extensions
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../2020/index.html">
+    2020 Survey Results
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#new-numpy-random-adoption">
-   New
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     numpy.random
-    </span>
-   </code>
-   Adoption
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../glossary.html">
+    Glossary
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#handling-issues">
-   Handling Issues
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-analysis-with-numpy">
-   Data Analysis with NumPy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opening-issues">
-   Opening Issues
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#deprecation-timeframe">
-   Deprecation Timeframe
-  </a>
- </li>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="demographics.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="priorities.html">Priorities</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biggest_impact.html">Future</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
 </ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">2021 Survey Results</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Usage</li>
+  </ul>
 </nav>
-              </div>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
               
-              <div class="toc-item">
+              
+              
                 
-              </div>
-              
-            
-          </div>
-          
-
-          
-          
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
-              
-              <div>
-                
-  <div class="tex2jax_ignore mathjax_ignore section" id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h1>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span> <span class="o">=</span> <span class="s2">&quot;data/2021/numpy_survey_results.tsv&quot;</span>
 <span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span>
@@ -276,15 +387,21 @@
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>This section comprises various questions to try to gain insight on things
 like new feature adoption, issue resolution, and the length of deprecation
 cycles.</p>
-<div class="section" id="numpy-primary-use">
-<h2>NumPy Primary Use<a class="headerlink" href="#numpy-primary-use" title="Permalink to this headline">¶</a></h2>
+<section id="numpy-primary-use">
+<h2>NumPy Primary Use<a class="headerlink" href="#numpy-primary-use" title="Link to this heading">#</a></h2>
 <p><span class="pasted-text">418 (80%)</span> respondents provided information about
 the primary context in which they use NumPy. Almost 3/4 of respondents use NumPy for work.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uses</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;primary_use&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;primary_use&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">labels</span><span class="p">,</span> <span class="n">cnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">uses</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -302,16 +419,22 @@ the primary context in which they use NumPy. Almost 3/4 of respondents use NumPy
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/features_and_deprecations_4_11.png" src="../../_images/features_and_deprecations_4_11.png" />
+<img alt="../../_images/96faa4e2c00b35c48404317e0631f51431d534b856bd2483c6f44050d1684b04.png" src="../../_images/96faa4e2c00b35c48404317e0631f51431d534b856bd2483c6f44050d1684b04.png" />
 </div>
 </div>
-</div>
-<div class="section" id="numpy-frequency-of-use">
-<h2>NumPy Frequency of Use<a class="headerlink" href="#numpy-frequency-of-use" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="numpy-frequency-of-use">
+<h2>NumPy Frequency of Use<a class="headerlink" href="#numpy-frequency-of-use" title="Link to this heading">#</a></h2>
 <p><span class="pasted-text">418 (80%)</span> respondents provided information about how
 often they use NumPy. Most respondents use NumPy on a daily or weekly basis.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">use_freq</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;use_freq&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;use_freq&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">labels</span><span class="p">,</span> <span class="n">cnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">use_freq</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -325,18 +448,24 @@ often they use NumPy. Most respondents use NumPy on a daily or weekly basis.</p>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/features_and_deprecations_6_11.png" src="../../_images/features_and_deprecations_6_11.png" />
+<img alt="../../_images/876378ed9e0d9e510a55d5c2da8c2cad9ee8c0346839144f11caf9b6d4cef67b.png" src="../../_images/876378ed9e0d9e510a55d5c2da8c2cad9ee8c0346839144f11caf9b6d4cef67b.png" />
 </div>
 </div>
-</div>
-<div class="section" id="numpy-version">
-<h2>NumPy Version<a class="headerlink" href="#numpy-version" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="numpy-version">
+<h2>NumPy Version<a class="headerlink" href="#numpy-version" title="Link to this heading">#</a></h2>
 <p>NumPy 1.21 was the latest stable release at the time the survey was
 conducted.
 <span class="pasted-text">50.7</span> percent of respondents report that they
 primarily use an older version of NumPy.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vers</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">labels</span><span class="p">,</span> <span class="n">cnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">vers</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -352,18 +481,24 @@ primarily use an older version of NumPy.</p>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/features_and_deprecations_8_1.png" src="../../_images/features_and_deprecations_8_1.png" />
+<img alt="../../_images/c3c1d0e7c0a6ebd31942b0004b906369c538747bd216717cb5a84734f63cfebb.png" src="../../_images/c3c1d0e7c0a6ebd31942b0004b906369c538747bd216717cb5a84734f63cfebb.png" />
 </div>
 </div>
-</div>
-<div class="section" id="numpy-components">
-<h2>NumPy Components<a class="headerlink" href="#numpy-components" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="numpy-components">
+<h2>NumPy Components<a class="headerlink" href="#numpy-components" title="Link to this heading">#</a></h2>
 <p>NumPy encompasses many packages for specific scientific computing tasks, such
 as random number generation or Fourier analysis.
 The following figure shows what percentage of respondents reported using each
 NumPy subpackage.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">components</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;components&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;components&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">num_respondents</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">components</span><span class="p">)</span>
@@ -388,16 +523,22 @@ NumPy subpackage.</p>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/features_and_deprecations_10_0.png" src="../../_images/features_and_deprecations_10_0.png" />
+<img alt="../../_images/6f95e11be0a9d154c1bab491f533b804fdcf583c5b2e3e336cf9ca4d0ac9d7dd.png" src="../../_images/6f95e11be0a9d154c1bab491f533b804fdcf583c5b2e3e336cf9ca4d0ac9d7dd.png" />
 </div>
 </div>
-</div>
-<div class="section" id="numpy-c-extensions">
-<h2>NumPy C-Extensions<a class="headerlink" href="#numpy-c-extensions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="numpy-c-extensions">
+<h2>NumPy C-Extensions<a class="headerlink" href="#numpy-c-extensions" title="Link to this heading">#</a></h2>
 <p><span class="pasted-text">363 (70%)</span> participants shared whether they (or their organization)
 uses custom C-extensions via the NumPy C-API (excluding Cython). Only about 7% of respondents report use.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uses_c_ext</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;use_c_ext&#39;</span><span class="p">]</span>
 <span class="n">use_c_ext</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;use_c_ext&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;use_c_ext&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
@@ -413,20 +554,26 @@ uses custom C-extensions via the NumPy C-API (excluding Cython). Only about 7% o
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/features_and_deprecations_12_1.png" src="../../_images/features_and_deprecations_12_1.png" />
+<img alt="../../_images/f015c229b004bcce5280d8bc4f021b0c77c3cb37fa4faac55de93e4d0c283238.png" src="../../_images/f015c229b004bcce5280d8bc4f021b0c77c3cb37fa4faac55de93e4d0c283238.png" />
 </div>
 </div>
-</div>
-<div class="section" id="new-numpy-random-adoption">
-<h2>New <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> Adoption<a class="headerlink" href="#new-numpy-random-adoption" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="new-numpy-random-adoption">
+<h2>New <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> Adoption<a class="headerlink" href="#new-numpy-random-adoption" title="Link to this heading">#</a></h2>
 <p>A <a class="reference external" href="https://numpy.org/doc/stable/reference/random/index.html">new API for random number generation</a> was added to <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>
 in version 1.17.
 We asked survey paricipants whether they were using the new random API.
-Of the <span class="pasted-text">522</span> survey participants,
+Of the <code class="docutils literal notranslate"><span class="pre">522</span></code> survey participants,
 <span class="pasted-text">233 (45%)</span> shared whether they were using the new <code class="docutils literal notranslate"><span class="pre">random</span></code>
 API.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rand</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;using_random&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;using_random&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">labels</span><span class="p">,</span> <span class="n">cnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">rand</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -444,22 +591,28 @@ API.</p>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/features_and_deprecations_14_11.png" src="../../_images/features_and_deprecations_14_11.png" />
+<img alt="../../_images/7fc3198822cc9c20564f3089c08eacaa282c92dbf5e6ea28a535623892703449.png" src="../../_images/7fc3198822cc9c20564f3089c08eacaa282c92dbf5e6ea28a535623892703449.png" />
 </div>
 </div>
-</div>
-<div class="section" id="handling-issues">
-<span id="sec-2021-handling-issues"></span><h2>Handling Issues<a class="headerlink" href="#handling-issues" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="handling-issues">
+<span id="sec-2021-handling-issues"></span><h2>Handling Issues<a class="headerlink" href="#handling-issues" title="Link to this heading">#</a></h2>
 <p>We wanted to get a sense of how often users experience issues with NumPy, so
 we asked the following question:</p>
 <blockquote>
 <div><p>In the last year, have you experienced problems in code you’ve written
 stemming from a problem in NumPy?</p>
 </div></blockquote>
-<p>Of the <span class="pasted-text">522</span> survey participants,
+<p>Of the <code class="docutils literal notranslate"><span class="pre">522</span></code> survey participants,
 <span class="pasted-text">331 (63%)</span> responded to this question.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bug</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;bug&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;bug&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">labels</span><span class="p">,</span> <span class="n">cnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">bug</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -478,13 +631,19 @@ stemming from a problem in NumPy?</p>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/features_and_deprecations_16_1.png" src="../../_images/features_and_deprecations_16_1.png" />
+<img alt="../../_images/51027931a4861521e61bd2c98b5253edd03c33d9d75bced13b320c824110378d.png" src="../../_images/51027931a4861521e61bd2c98b5253edd03c33d9d75bced13b320c824110378d.png" />
 </div>
 </div>
 <p>We asked those who reported they experienced issues what action(s) they took to
 resolve the issue.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bug_resolution</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;bug_resolution&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;bug_resolution&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">labels</span><span class="p">,</span> <span class="n">cnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">bug_resolution</span><span class="p">),</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -503,13 +662,14 @@ resolve the issue.</p>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/features_and_deprecations_18_0.png" src="../../_images/features_and_deprecations_18_0.png" />
+<img alt="../../_images/a0df339cdcf4c613a157f0a90741136e91b9734b6c07acc015351edd00b2f670.png" src="../../_images/a0df339cdcf4c613a157f0a90741136e91b9734b6c07acc015351edd00b2f670.png" />
 </div>
 </div>
-</div>
-<div class="section" id="data-analysis-with-numpy">
-<h2>Data Analysis with NumPy<a class="headerlink" href="#data-analysis-with-numpy" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="data-analysis-with-numpy">
+<h2>Data Analysis with NumPy<a class="headerlink" href="#data-analysis-with-numpy" title="Link to this heading">#</a></h2>
 <p>Similar to the <a class="reference internal" href="#sec-2021-handling-issues"><span class="std std-ref">the previous question</span></a>, we tried to
 get a sense of how well NumPy meets users’ data analysis needs.
 We asked the following question:</p>
@@ -517,11 +677,16 @@ We asked the following question:</p>
 <div><p>In the last year, have you encountered a problem involving numerical data
 that you were unable to solve using NumPy?</p>
 </div></blockquote>
-<p>Of the <span class="pasted-text">522</span> survey participants,
+<p>Of the <code class="docutils literal notranslate"><span class="pre">522</span></code> survey participants,
 <span class="pasted-text">328 (63%)</span> responded to the above question, with
 <span class="pasted-text">60 (18%)</span> reporting that they’ve had a problem that they
 initially expected to be able to solve using NumPy, but were unable to do so.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unsolvable</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;unsolvable&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;unsolvable&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">labels</span><span class="p">,</span> <span class="n">cnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">unsolvable</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -545,13 +710,19 @@ initially expected to be able to solve using NumPy, but were unable to do so.</p
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/features_and_deprecations_20_2.png" src="../../_images/features_and_deprecations_20_2.png" />
+<img alt="../../_images/5b731efffe5cd52077c3e5e979cf6fe046baad3c4318c0e54f5901231e894ff9.png" src="../../_images/5b731efffe5cd52077c3e5e979cf6fe046baad3c4318c0e54f5901231e894ff9.png" />
 </div>
 </div>
 <p>We asked those that responded “Yes” to the previous question what action(s)
 they took to resolve the issue.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resolution</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;unsolvable_resolution&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;unsolvable&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Yes&#39;</span><span class="p">]</span>
 <span class="n">resolution</span> <span class="o">=</span> <span class="n">resolution</span><span class="p">[</span><span class="n">resolution</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
@@ -571,15 +742,21 @@ they took to resolve the issue.</p>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/features_and_deprecations_22_0.png" src="../../_images/features_and_deprecations_22_0.png" />
+<img alt="../../_images/516d0d62b0d7a6b170bf5c089289390704f48be4921ac8a1d3de5ece8782dc47.png" src="../../_images/516d0d62b0d7a6b170bf5c089289390704f48be4921ac8a1d3de5ece8782dc47.png" />
 </div>
 </div>
-</div>
-<div class="section" id="opening-issues">
-<h2>Opening Issues<a class="headerlink" href="#opening-issues" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="opening-issues">
+<h2>Opening Issues<a class="headerlink" href="#opening-issues" title="Link to this heading">#</a></h2>
 <p><span class="pasted-text">54 (10%)</span> respondents reported having a problem with numerical data that they were unable to solve using NumPy, and did not open an issue. They were then asked why they did not open an issue for their particular problem.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">open_issues</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;issues&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;issues&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">labels</span><span class="p">,</span> <span class="n">cnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">open_issues</span><span class="p">),</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -604,21 +781,27 @@ they took to resolve the issue.</p>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/features_and_deprecations_24_1.png" src="../../_images/features_and_deprecations_24_1.png" />
+<img alt="../../_images/b796abff429977bdb619c2abe889c5931c872bea8fbc754853abc278a8336c2c.png" src="../../_images/b796abff429977bdb619c2abe889c5931c872bea8fbc754853abc278a8336c2c.png" />
 </div>
 </div>
-</div>
-<div class="section" id="deprecation-timeframe">
-<h2>Deprecation Timeframe<a class="headerlink" href="#deprecation-timeframe" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="deprecation-timeframe">
+<h2>Deprecation Timeframe<a class="headerlink" href="#deprecation-timeframe" title="Link to this heading">#</a></h2>
 <p>We asked survey participants to share their opinion on the NumPy
 deprecation cycle, specifically:</p>
 <blockquote>
 <div><p>NumPy normally has a two release cycle (1 year) deprecation policy. Do you think this is…</p>
 </div></blockquote>
-<p>Of the <span class="pasted-text">522</span> survey participants,
+<p>Of the <code class="docutils literal notranslate"><span class="pre">522</span></code> survey participants,
 <span class="pasted-text">322 (62%)</span> responded to this question.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">current_dep</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;deprecation_short&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;deprecation_short&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">labels</span><span class="p">,</span> <span class="n">cnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">current_dep</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -636,17 +819,23 @@ deprecation cycle, specifically:</p>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/features_and_deprecations_26_1.png" src="../../_images/features_and_deprecations_26_1.png" />
+<img alt="../../_images/08c32e70d9aa45a1bc86b7c3ffa773e1f42b4243c7acb96cf218509355e04621.png" src="../../_images/08c32e70d9aa45a1bc86b7c3ffa773e1f42b4243c7acb96cf218509355e04621.png" />
 </div>
 </div>
 <p>We also asked the following:</p>
 <blockquote>
 <div><p>What do you consider as a good deprecation time frame?</p>
 </div></blockquote>
-<p>Of the <span class="pasted-text">522</span> survey participants,
+<p>Of the <code class="docutils literal notranslate"><span class="pre">522</span></code> survey participants,
 <span class="pasted-text">322 (62%)</span> responded to this question.</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">depcycle</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;deprecation&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;deprecation&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">labels</span><span class="p">,</span> <span class="n">cnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">depcycle</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -664,58 +853,136 @@ deprecation cycle, specifically:</p>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/features_and_deprecations_28_1.png" src="../../_images/features_and_deprecations_28_1.png" />
+<img alt="../../_images/2547fbd27362b8dd40f8103f31c54d10372be4e95137122e1fc7957cf5213ca2.png" src="../../_images/2547fbd27362b8dd40f8103f31c54d10372be4e95137122e1fc7957cf5213ca2.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
-              </div>
+                </article>
               
               
-              <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="priorities.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Priorities</p>
-        </div>
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="priorities.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Priorities</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="biggest_impact.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="biggest_impact.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Future</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
               
-          </main>
-          
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-      </div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-primary-use">NumPy Primary Use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-frequency-of-use">NumPy Frequency of Use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-version">NumPy Version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-components">NumPy Components</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-c-extensions">NumPy C-Extensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-numpy-random-adoption">New <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> Adoption</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-issues">Handling Issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis-with-numpy">Data Analysis with NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-issues">Opening Issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecation-timeframe">Deprecation Timeframe</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/content/2021/features_and_deprecations.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2020, NumPy Survey Team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    <br/>
+  </p>
+</div>
+      
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    
-    <div class="footer-item">
-      <p class="copyright">
-    &copy; Copyright 2020, NumPy Survey Team.<br>
-</p>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
     </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
-</p>
-    </div>
-    
-  </div>
-</footer>
+  
+</div>
+
+  </footer>
   </body>
 </html>
